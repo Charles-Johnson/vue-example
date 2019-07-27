@@ -6,24 +6,39 @@
       <Content>
         <Row>
           <i-Col span="8">
-            <p>To Do</p>
+            <h2>To Do</h2>
             <Divider/>
             <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false">
-              <div v-for="element in toDoArray" :key="element.id">{{element.name}}</div>
+              <div v-for="element in toDoArray" :key="element.id">
+                <Card>
+                  <h3>{{element.header}}</h3>
+                  <p>{{element.body}}</p>
+                </Card>
+              </div>
             </draggable>
           </i-Col>
           <i-Col span="8">
-            <p>In Progress</p>
+            <h2>In Progress</h2>
             <Divider/>
             <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false">
-              <div v-for="element in inProgressArray" :key="element.id">{{element.name}}</div>
+              <div v-for="element in inProgressArray" :key="element.id">
+                <Card>
+                  <h3>{{element.header}}</h3>
+                  <p>{{element.body}}</p>
+                </Card>
+              </div>
             </draggable>
           </i-Col>
           <i-Col span="8">
-            <p>Done</p>
+            <h2>Done</h2>
             <Divider/>
             <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false">
-              <div v-for="element in finishedArray" :key="element.id">{{element.name}}</div>
+              <div v-for="element in finishedArray" :key="element.id">
+                <Card>
+                  <h3>{{element.header}}</h3>
+                  <p>{{element.body}}</p>
+                </Card>
+              </div>
             </draggable>
           </i-Col>
         </Row>
@@ -41,9 +56,9 @@ export default {
   },
   data() {
     return {
-      toDoArray: [{name: "1"},{name: "2"}],
-      inProgressArray: [{name: "3"},{name: "4"}],
-      finishedArray: [{name: "5"},{name: "6"}],
+      toDoArray: [{header: "", body: "1", id: 1},{header: "", body: "2", id: 2}],
+      inProgressArray: [{header: "", body: "3", id: 3},{header: "", body: "4", id: 4}],
+      finishedArray: [{header: "", body: "5", id: 5},{header: "", body: "6", id: 6}],
     };
   },
 }
