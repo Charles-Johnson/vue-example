@@ -1,18 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <draggable v-model="toDoArray" @start="drag=true" @end="drag=false">
+      <div v-for="element in toDoArray" :key="element.id">{{element.name}}</div>
+    </draggable>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import draggable from 'vuedraggable'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    draggable,
+  },
+  data() {
+    return {toDoArray: [{name: "1"},{name: "2"}]};
+  },
 }
 </script>
 
