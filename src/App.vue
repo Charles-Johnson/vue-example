@@ -120,7 +120,6 @@ export default {
   color: #2c3e50;
 }
 #header {
-  font-size: 3vw;
   color: white;
 }
 .card {
@@ -142,13 +141,32 @@ export default {
   display: flex;
   flex-direction: row;
 }
-.col-header {
-  font-size: 2vw;
+@media screen and (min-width: 601px) {
+  #header {
+    font-size: 24px;
+  }
+  .col-header {
+    font-size: 18px;
+  }
+  .el-header {
+    font-size: 16px;
+  }
+  .el-body {
+    font-size: 13px;
+  }
 }
-.el-header {
-  font-size: 1.5vw;
-}
-.el-body {
-  font-size: 1vw;
+@media screen and (max-width: 600px) {
+  #header {
+    font-size: 4vw;
+  }
+  .col-header {
+    font-size: 3vw;
+  }
+  .el-header {
+    font-size: 2.5vw;
+  }
+  .el-body {
+    font-size: 2vw;
+  }
 }
 </style>
