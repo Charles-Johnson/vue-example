@@ -1,9 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <draggable v-model="toDoArray" @start="drag=true" @end="drag=false">
-      <div v-for="element in toDoArray" :key="element.id">{{element.name}}</div>
-    </draggable>
+    <Row>
+      <i-Col span="8">
+        <draggable v-model="toDoArray" @start="drag=true" @end="drag=false">
+          <div v-for="element in toDoArray" :key="element.id">{{element.name}}</div>
+        </draggable>
+      </i-Col>
+      <i-Col span="8">
+        <draggable v-model="inProgressArray" @start="drag=true" @end="drag=false">
+          <div v-for="element in inProgressArray" :key="element.id">{{element.name}}</div>
+        </draggable>
+      </i-Col>
+      <i-Col span="8">
+        <draggable v-model="finishedArray" @start="drag=true" @end="drag=false">
+          <div v-for="element in finishedArray" :key="element.id">{{element.name}}</div>
+        </draggable>
+      </i-Col>
+    </Row>
   </div>
 </template>
 
@@ -16,7 +30,11 @@ export default {
     draggable,
   },
   data() {
-    return {toDoArray: [{name: "1"},{name: "2"}]};
+    return {
+      toDoArray: [{name: "1"},{name: "2"}],
+      inProgressArray: [{name: "3"},{name: "4"}],
+      finishedArray: [{name: "5"},{name: "6"}],
+    };
   },
 }
 </script>
