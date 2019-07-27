@@ -11,7 +11,7 @@
             <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
               <div v-for="element in toDoArray" :key="element.id">
                 <Card class="card">
-                  <Icon type="ios-move" class="handle"/>
+                  <Button icon="ios-move" class="handle"/>
                   <h3 class="el-header">{{element.header}}</h3>
                   <p class="el-body">{{element.body}}</p>
                 </Card>
@@ -24,7 +24,7 @@
             <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
               <div v-for="element in inProgressArray" :key="element.id">
                 <Card class="card">
-                  <Icon type="ios-move" class="handle"/>
+                  <Button icon="ios-move" class="handle"/>
                   <h3 class="el-header">{{element.header}}</h3>
                   <p class="el-body">{{element.body}}</p>
                 </Card>
@@ -37,7 +37,7 @@
             <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
               <div v-for="element in finishedArray" :key="element.id"> 
                 <Card class="card">
-                  <Icon type="ios-move" class="handle"/>
+                  <Button icon="ios-move" class="handle"/>
                   <h3 class="el-header">{{element.header}}</h3>
                   <p class="el-body">{{element.body}}</p>
                 </Card>
