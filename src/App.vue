@@ -4,44 +4,44 @@
         <h1 id="header">To-do List for Vue.js To-do List</h1>
       </Header>
       <Content>
-        <Row>
-          <i-Col span="8">
-            <h2>To Do</h2>
+        <div class="row">
+          <div class="col">
+            <h2 class="col-header">To Do</h2>
             <Divider/>
-            <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false">
+            <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable">
               <div v-for="element in toDoArray" :key="element.id">
-                <Card>
-                  <h3>{{element.header}}</h3>
-                  <p>{{element.body}}</p>
+                <Card class="card">
+                  <h3 class="el-header">{{element.header}}</h3>
+                  <p class="el-body">{{element.body}}</p>
                 </Card>
               </div>
             </draggable>
-          </i-Col>
-          <i-Col span="8">
-            <h2>In Progress</h2>
+          </div>
+          <div class="col">
+            <h2 class="col-header">In Progress</h2>
             <Divider/>
-            <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false">
+            <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable">
               <div v-for="element in inProgressArray" :key="element.id">
-                <Card>
-                  <h3>{{element.header}}</h3>
-                  <p>{{element.body}}</p>
+                <Card class="card">
+                  <h3 class="el-header">{{element.header}}</h3>
+                  <p class="el-body">{{element.body}}</p>
                 </Card>
               </div>
             </draggable>
-          </i-Col>
-          <i-Col span="8">
-            <h2>Done</h2>
+          </div>
+          <div class="col">
+            <h2 class="col-header">Done</h2>
             <Divider/>
-            <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false">
+            <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable">
               <div v-for="element in finishedArray" :key="element.id">
-                <Card>
-                  <h3>{{element.header}}</h3>
-                  <p>{{element.body}}</p>
+                <Card class="card">
+                  <h3 class="el-header">{{element.header}}</h3>
+                  <p class="el-body">{{element.body}}</p>
                 </Card>
               </div>
             </draggable>
-          </i-Col>
-        </Row>
+          </div>
+        </div>
       </Content>
     </Layout>
 </template>
@@ -120,7 +120,35 @@ export default {
   color: #2c3e50;
 }
 #header {
-  font-size: large;
+  font-size: 3vw;
   color: white;
+}
+.card {
+  margin: 5%;
+}
+.draggable {
+  background-color:cadetblue;
+  margin: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  height: 100%;
+}
+.col {
+  flex: 1;
+}
+.row {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.col-header {
+  font-size: 2vw;
+}
+.el-header {
+  font-size: 1.5vw;
+}
+.el-body {
+  font-size: 1vw;
 }
 </style>
