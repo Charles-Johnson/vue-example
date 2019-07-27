@@ -56,9 +56,56 @@ export default {
   },
   data() {
     return {
-      toDoArray: [{header: "", body: "1", id: 1},{header: "", body: "2", id: 2}],
-      inProgressArray: [{header: "", body: "3", id: 3},{header: "", body: "4", id: 4}],
-      finishedArray: [{header: "", body: "5", id: 5},{header: "", body: "6", id: 6}],
+      toDoArray: [
+        {
+          header: "Add text input to cards",
+          body: "https://www.iviewui.com/components/input-en",
+          id: 1
+        },
+        {
+          header: "Include Add button",
+          body: "https://www.iviewui.com/components/button-en",
+          id: 2
+        },
+        {
+          header: "Use ionicons",
+          body: "https://www.iviewui.com/components/icon-en",
+          id: 3
+        },
+        {
+          header: "Unit testing",
+          body: "https://vue-test-utils.vuejs.org/api",
+          id: 4,
+        }
+      ],
+      inProgressArray: [],
+      finishedArray: [
+        {
+          header: "Set up 3 column layout",
+          body: "https://www.iviewui.com/components/grid-en",
+          id: 5
+        },
+        {
+          header: "Add cards",
+          body: "https://www.iviewui.com/components/card-en",
+          id: 6
+        },
+        {
+          header: "Add a header",
+          body: "https://www.iviewui.com/components/layout-en",
+          id: 7
+        },
+        {
+          header: "Add draggable components",
+          body: "https://github.com/SortableJS/Vue.Draggable",
+          id: 8,
+        },
+        {
+          header: "Set up development for Vue.js",
+          body: "https://cli.vuejs.org",
+          id: 9
+        }
+      ],
     };
   },
 }
