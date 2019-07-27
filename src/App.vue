@@ -3,17 +3,17 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <Row>
       <i-Col span="8">
-        <draggable v-model="toDoArray" @start="drag=true" @end="drag=false">
+        <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false">
           <div v-for="element in toDoArray" :key="element.id">{{element.name}}</div>
         </draggable>
       </i-Col>
       <i-Col span="8">
-        <draggable v-model="inProgressArray" @start="drag=true" @end="drag=false">
+        <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false">
           <div v-for="element in inProgressArray" :key="element.id">{{element.name}}</div>
         </draggable>
       </i-Col>
       <i-Col span="8">
-        <draggable v-model="finishedArray" @start="drag=true" @end="drag=false">
+        <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false">
           <div v-for="element in finishedArray" :key="element.id">{{element.name}}</div>
         </draggable>
       </i-Col>
