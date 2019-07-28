@@ -8,17 +8,17 @@
           <div class="col">
             <h2 class="col-header">To Do</h2>
             <Divider/>
-            <ColumnOfDraggables v-bind:array="toDoArray"></ColumnOfDraggables>
+            <ColumnOfDraggables v-bind:array="'toDoArray'"></ColumnOfDraggables>
           </div>
           <div class="col">
             <h2 class="col-header">In Progress</h2>
             <Divider/>
-            <ColumnOfDraggables v-bind:array="inProgressArray"></ColumnOfDraggables>
+            <ColumnOfDraggables v-bind:array="'inProgressArray'"></ColumnOfDraggables>
           </div>
           <div class="col">
             <h2 class="col-header">Done</h2>
             <Divider/>
-            <ColumnOfDraggables v-bind:array="finishedArray"></ColumnOfDraggables>
+            <ColumnOfDraggables v-bind:array="'finishedArray'"></ColumnOfDraggables>
           </div>
         </div>
       </Content>
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable';
 import ColumnOfDraggables from './components/ColumnOfDraggables';
 
 
@@ -34,62 +33,18 @@ export default {
   name: 'app',
   components: {
     ColumnOfDraggables,
-    draggable,
   },
-  data() {
-    return {
-      toDoArray: [
-        {
-          header: "Add text input to cards",
-          body: "https://www.iviewui.com/components/input-en",
-          id: 1
-        },
-        {
-          header: "Include Add button",
-          body: "https://www.iviewui.com/components/button-en",
-          id: 2
-        },
-        {
-          header: "Use ionicons",
-          body: "https://www.iviewui.com/components/icon-en",
-          id: 3
-        },
-        {
-          header: "Unit testing",
-          body: "https://vue-test-utils.vuejs.org/api",
-          id: 4,
-        }
-      ],
-      inProgressArray: [],
-      finishedArray: [
-        {
-          header: "Set up 3 column layout",
-          body: "https://www.iviewui.com/components/grid-en",
-          id: 5
-        },
-        {
-          header: "Add cards",
-          body: "https://www.iviewui.com/components/card-en",
-          id: 6
-        },
-        {
-          header: "Add a header",
-          body: "https://www.iviewui.com/components/layout-en",
-          id: 7
-        },
-        {
-          header: "Add draggable components",
-          body: "https://github.com/SortableJS/Vue.Draggable",
-          id: 8,
-        },
-        {
-          header: "Set up development for Vue.js",
-          body: "https://cli.vuejs.org",
-          id: 9
-        }
-      ],
-    };
-  },
+  computed: {
+    toDoArray: function() {
+      return this.$store.state.toDoArray
+    },
+    inProgressArray: function() {
+      return this.$store.state.inProgressArray
+    },
+    finishedArray: function() {
+      return this.$store.state.finishedArray
+    }
+  }
 }
 </script>
 
