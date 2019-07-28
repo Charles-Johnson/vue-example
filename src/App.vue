@@ -8,6 +8,11 @@
           <div class="col">
             <h2 class="col-header">To Do</h2>
             <Divider/>
+            <Card class="card">
+              <Input v-bind="newHeader" @input="update({newHeader: $event})" size="large" placeholder="Create a new task here"/>
+              <Input v-bind="newBody" @input="update({newBody: $event})" size="small" placeholder="Description..." type="textarea" :autosize="true"/>
+              <Button type="primary" icon="md-add" @click="add({newHeader, newBody})" shape="circle"/>
+            </Card>
             <ColumnOfDraggables v-bind:array="'toDoArray'"></ColumnOfDraggables>
           </div>
           <div class="col">
@@ -34,6 +39,14 @@ export default {
   components: {
     ColumnOfDraggables,
   },
+  methods: {
+    add: function(newTask) {
+      this.$store.dispatch('add', newTask);
+    },
+    update: function(newItem) {
+      this.$store.dispatch('update', {array: Object.keys(newItem)[0], newArray: Object.values(newItem)[0]});
+    }
+  },
   computed: {
     toDoArray: function() {
       return this.$store.state.toDoArray
@@ -43,6 +56,12 @@ export default {
     },
     finishedArray: function() {
       return this.$store.state.finishedArray
+    },
+    newHeader: function() {
+      return this.$store.state.newHeader
+    },
+    newBody: function() {
+      return this.$store.state.newBody
     }
   }
 }
