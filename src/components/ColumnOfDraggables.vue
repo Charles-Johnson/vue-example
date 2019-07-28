@@ -1,5 +1,5 @@
 <template>
-    <draggable v-model="computedArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
+    <draggable v-bind="computedArray" @input="update" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
         <div v-for="(element, index) in computedArray" :key="element.id">
             <Card class="card">
                 <i-button icon="md-move" class="handle"/>
@@ -21,6 +21,9 @@ export default {
     methods: {
         remove: function (index) {
             this.$store.dispatch('remove', {array: this.array, index});
+        },
+        update: function (newArray) {
+            this.$store.dispatch('update', {array: this.array, newArray});
         }
     },
     computed: {
