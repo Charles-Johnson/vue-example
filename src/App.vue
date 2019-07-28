@@ -8,41 +8,17 @@
           <div class="col">
             <h2 class="col-header">To Do</h2>
             <Divider/>
-            <draggable v-model="toDoArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
-              <div v-for="element in toDoArray" :key="element.id">
-                <Card class="card">
-                  <Button icon="ios-move" class="handle"/>
-                  <h3 class="el-header">{{element.header}}</h3>
-                  <p class="el-body">{{element.body}}</p>
-                </Card>
-              </div>
-            </draggable>
+            <ColumnOfDraggables v-bind:array="toDoArray"></ColumnOfDraggables>
           </div>
           <div class="col">
             <h2 class="col-header">In Progress</h2>
             <Divider/>
-            <draggable v-model="inProgressArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
-              <div v-for="element in inProgressArray" :key="element.id">
-                <Card class="card">
-                  <Button icon="ios-move" class="handle"/>
-                  <h3 class="el-header">{{element.header}}</h3>
-                  <p class="el-body">{{element.body}}</p>
-                </Card>
-              </div>
-            </draggable>
+            <ColumnOfDraggables v-bind:array="inProgressArray"></ColumnOfDraggables>
           </div>
           <div class="col">
             <h2 class="col-header">Done</h2>
             <Divider/>
-            <draggable v-model="finishedArray" group="tasks" @start="drag=true" @end="drag=false" class="draggable" handle=".handle">
-              <div v-for="element in finishedArray" :key="element.id"> 
-                <Card class="card">
-                  <Button icon="ios-move" class="handle"/>
-                  <h3 class="el-header">{{element.header}}</h3>
-                  <p class="el-body">{{element.body}}</p>
-                </Card>
-              </div>
-            </draggable>
+            <ColumnOfDraggables v-bind:array="finishedArray"></ColumnOfDraggables>
           </div>
         </div>
       </Content>
@@ -51,10 +27,13 @@
 
 <script>
 import draggable from 'vuedraggable';
+import ColumnOfDraggables from './components/ColumnOfDraggables';
+
 
 export default {
   name: 'app',
   components: {
+    ColumnOfDraggables,
     draggable,
   },
   data() {
